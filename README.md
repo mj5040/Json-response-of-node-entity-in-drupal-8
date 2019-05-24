@@ -1,4 +1,4 @@
-# alter-info
+# Custom Module
 This module alters the site information form and resturns the json response of given node of page bundle.
 
 ### Installing the Custom Module
