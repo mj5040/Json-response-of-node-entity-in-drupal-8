@@ -1,0 +1,5 @@
+name: Custom Module
+type: module
+description: Custom Module to alter site information.
+package: custom
+core: '8.x'

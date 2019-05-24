@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Contains install and uninstall functions for custom module.
+ */
+ 
+use Drupal\Core\Form\ConfigFormBase; 
+
+/**
+ * Implements hook_install().
+ */
+function custom_install() 
+{	
+    \Drupal::configFactory()->getEditable('system.site')->set('defaultapimessage', 'No API Key yet')->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function custom_uninstall() 
+{	
+    \Drupal::configFactory()->getEditable('system.site')->clear('defaultapimessage')->save();
+    $siteApiKey = \Drupal::config('system.site')->get('siteapikey');
+    if(!empty($siteApiKey))
+        \Drupal::configFactory()->getEditable('system.site')->clear('siteapikey')->save();
+}
